@@ -23,12 +23,9 @@ body {
 .masthead {
   display: flex;
   align-items: center;
-  background-image: linear-gradient(
-          135deg,
-          rgb(24, 42, 115) 0%,
-          rgb(33, 138, 174) 69%,
-          rgb(32, 167, 172) 89%
-  ) !important;
+  background: #8E2DE2!important;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2)!important;  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4A00E0, #8E2DE2)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 100vh;
 }
 
@@ -43,7 +40,8 @@ body {
 }
 
 .masthead h1.ui.header {
-  font-size: 4em;
+  font-size: 4.5rem;
+  
   font-weight: normal;
 }
 
