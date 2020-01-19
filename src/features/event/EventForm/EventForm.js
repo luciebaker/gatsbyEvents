@@ -3,10 +3,12 @@ import { Segment, Form, Button, Grid, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { reduxForm, Field} from 'redux-form'
 import { createEvent, updateEvent} from '../eventActions'
+import { composeValidators, combineValidators, isRequired, hasLengthGreaterThan} from 'revalidate'
 import cuid from 'cuid'
 import TextInput from '../../../app/common/form/TextInput'
 import TextArea from '../../../app/common/form/TextArea'
 import SelectInput from '../../../app/common/form/SelectInput'
+import DateInput from '../../../app/common/form/DateInput'
 
 const mapState = (state, ownProps) => {
     const eventId = ownProps.match.params.id
@@ -26,6 +28,19 @@ const actions = {
     createEvent, 
     updateEvent
 }
+
+const validate = combineValidators({
+    title: isRequired({message: 'The event title is required'}),
+    category: isRequired({message: 'You must pick a category for your event'}),
+    description: composeValidators(
+        isRequired({message: 'Please enter a description of your event'}),
+        hasLengthGreaterThan(9)({message: 'Description needs to be at least 10 characters'})
+    )(),
+    city: isRequired('city'),
+    venue: isRequired('venue'),
+    date: isRequired('date')
+    
+})
 
 const category = [
     {key: 'drinks', text: 'Drinks', value: 'drinks'},
@@ -56,7 +71,7 @@ class EventForm extends Component {
     }
 
     render() {
-        const {history, initialValues} = this.props
+        const {history, initialValues, invalid, submitting, pristine} = this.props
         return (
             <Grid>
             <Grid.Column width={10}>
@@ -80,8 +95,14 @@ class EventForm extends Component {
                     <Header sub color='violet' content='Event Location Details' /> 
                     <Field name='city' component={TextInput} placeholder='In which city is your event taking place?'/>
                     <Field name='venue' component={TextInput} placeholder='Event Venue'/>
-                    <Field name='date' component={TextInput} placeholder='When is your event taking place?'/>
-                    <Button color="teal" type="submit">
+                    <Field 
+                    name='date' 
+                    component={DateInput} 
+                    showTimeSelect
+                    timeFormat='HH:mm'
+                    dateFormat='LLLL dd, yyyy h:mm a'
+                    placeholder='When is your event taking place?'/>
+                    <Button disabled={invalid || submitting || pristine} color="teal" type="submit">
                         Submit
                     </Button>
                 <Button 
@@ -99,4 +120,4 @@ class EventForm extends Component {
         )
     }
 }
-export default connect(mapState, actions)(reduxForm({form: 'eventForm'})(EventForm))
+export default connect(mapState, actions)(reduxForm({form: 'eventForm', validate})(EventForm))

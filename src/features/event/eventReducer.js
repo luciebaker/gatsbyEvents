@@ -25,7 +25,7 @@ const initialState = [
         photoURL: 'https://randomuser.me/api/portraits/men/22.jpg'
         },
         {
-        id: 'b',
+        id: 'c',
         name: 'Amber',
         photoURL: 'https://randomuser.me/api/portraits/women/26.jpg'
         }
