@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { Icon } from 'semantic-ui-react';
 
-const AnyReactComponent = () => <Icon name='market' size='big' color='violet' />;
+const AnyReactComponent = () => <Icon name='marker' size='big' color='violet' />;
 
 class SimpleMap extends Component {
   static defaultProps = {

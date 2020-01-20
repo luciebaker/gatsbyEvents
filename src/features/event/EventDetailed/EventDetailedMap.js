@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import { Segment, Icon } from 'semantic-ui-react';
 
-const Marker = () => <Icon name='market' size='big' color='violet' />;
+const Marker = () => <Icon name='marker' size='big' color='violet' />;
 
 const EventDetailedMap = ({lat, lng}) => {
     const zoom = 14
