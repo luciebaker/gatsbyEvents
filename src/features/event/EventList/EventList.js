@@ -6,7 +6,7 @@ import EventListItem from './EventListItem'
         const {events, deleteEvent} = this.props
         return (
             <Fragment>
-            {events.map(event => (
+            {events && events.map(event => (
                 <EventListItem 
                 key={event.id} 
                 event={event} 
