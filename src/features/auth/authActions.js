@@ -26,7 +26,7 @@ export const registerUser = user => async (dispatch, getState, {getFirebase, get
             .createUserWithEmailAndPassword(user.email, user.password);
             console.log(createdUser);
             //update the auth profile
-            await createdUser.updateProfile({
+            await createdUser.user.updateProfile({
                 displayName: user.displayName
             })
             //create a new profile in firestore
