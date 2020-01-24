@@ -10,7 +10,7 @@ export const login = creds => {
         } catch (error) {
             console.log(error);
             throw new SubmissionError({
-                _error: 'Login Failed. Check you entered the correct email and password.'
+                _error: 'Login Failed. Check your email and password.'
             })
         }
     } 
@@ -32,11 +32,14 @@ export const registerUser = user => async (dispatch, getState, {getFirebase, get
             //create a new profile in firestore
             let newUser = {
                 displayName: user.displayName,
-                createdAt: firestore.FieldValue.serverTimeStamp()
+                createdAt: firestore.FieldValue.serverTimestamp()
             }
             await firestore.set(`users/${createdUser.uid}`, {...newUser})
             dispatch(closeModal());
         } catch (error) {
             console.log(error);
+            throw new SubmissionError({
+                _error: error.message
+            })
         }
     }
