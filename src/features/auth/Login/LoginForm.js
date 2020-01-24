@@ -1,9 +1,9 @@
 import React from 'react';
 import { Form, Segment, Button, Label, Divider } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import TextInput from '../../../app/common/form/TextInput';
 import { login, socialLogin } from '../authActions';
-import { connect } from 'react-redux';
 import SocialLogin from '../SocialLogin/SocialLogin'
 
 const actions = {
