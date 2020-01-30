@@ -8,7 +8,7 @@ const EventActivity = () => {
                 textAlign="center"
                 attached="top"
                 inverted
-                color="violet"
+                color="black"
                 style={{ border: 'none' }}
             >
             <Header>Recent Activity</Header>

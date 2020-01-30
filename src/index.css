@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(234, 234, 234) !important;
+  background-color:#4E356F !important;
 }
 
 /*timepicker style*/
@@ -22,12 +22,30 @@ body {
 
 .masthead {
   display: flex;
+  justify-content: center;
   align-items: center;
-  background: #8E2DE2!important;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2)!important;  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4A00E0, #8E2DE2)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  align-content: center;
+  position: relative;
+  flex-wrap: wrap;
+  background: black;
   height: 100vh;
 }
+
+.masthead-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: center;
+
+}
+
+.masthead-logo {
+  max-width: 600px;
+  padding-bottom: 3rem;
+}
+
+
 
 /* .masthead.segment {
   min-height: 700px;
@@ -66,10 +84,12 @@ body {
   margin-right: 1.5em;
 }
 
+.ui.menu .item>img:not(.ui) {
+  width: 175px;
+}
+
 .ui.fixed.menu {
-  background: #8E2DE2;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #000;
 }
 
 .ui.main.container,
