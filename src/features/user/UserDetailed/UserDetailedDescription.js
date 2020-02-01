@@ -8,7 +8,10 @@ const UserDetailedDescription = ({ profile }) => {
         <Segment>
             <Grid columns={2}>
             <Grid.Column width={10}>
-                <Header icon='user circle' content='About me' />
+                <Header>
+                    <Icon name="user circle"/>
+                    <Header.Content>About {profile.displayName} </Header.Content>
+                </Header> 
                 <p>
                 I am a: <strong>{profile.occupation || 'unknown'}</strong>
                 </p>
