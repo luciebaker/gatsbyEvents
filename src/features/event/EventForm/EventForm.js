@@ -29,7 +29,8 @@ const mapState = (state, ownProps) => {
 
     return {
         initialValues: event,
-        event
+        event,
+        loading: state.async.loading
     }
 }
 
@@ -87,7 +88,7 @@ class EventForm extends Component {
                 if (Object.keys(values.venueLatLng).length === 0) {
                     values.venueLatLng = this.props.event.venueLatLng;
                 }
-                this.props.updateEvent(values);
+                await this.props.updateEvent(values);
                 this.props.history.push(`/events/${this.props.initialValues.id}`)
             } else {
                 let createdEvent = await this.props.createEvent(values);
@@ -125,7 +126,7 @@ class EventForm extends Component {
     }
 
     render() {
-        const {history, initialValues, invalid, submitting, pristine, event, cancelToggle} = this.props
+        const {history, initialValues, invalid, submitting, pristine, event, cancelToggle, loading} = this.props
         return (
             <Grid>
             <Grid.Column width={10}>
@@ -170,13 +171,17 @@ class EventForm extends Component {
                     timeFormat='HH:mm'
                     dateFormat='LLLL dd, yyyy h:mm a'
                     placeholder='When is your event taking place?'/>
-                    <Button disabled={invalid || submitting || pristine} color="teal" type="submit">
+                    <Button 
+                    disabled={invalid || submitting || pristine} 
+                    loading={loading}
+                    color="teal" type="submit"  >
                         Submit
                     </Button>
                 <Button 
-                onClick={initialValues.id 
-                    ? () => history.push(`/events/${initialValues.id}`)
-                    : () => history.push('/events')
+                    disabled={loading}
+                    onClick={initialValues.id 
+                        ? () => history.push(`/events/${initialValues.id}`)
+                        : () => history.push('/events')
                 } 
                 type="button">
                 Cancel</Button>

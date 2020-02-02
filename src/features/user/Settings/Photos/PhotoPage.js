@@ -140,6 +140,7 @@ const query = ({ auth }) => {
                 profile={profile}
                 deletePhoto={handleDeletePhoto}
                 setMainPhoto={handleSetMainPhoto}
+                loading={loading}
             />
             </Segment>
         );
