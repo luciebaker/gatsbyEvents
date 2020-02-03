@@ -11,6 +11,8 @@ import SettingsDashboard from '../../features/user/Settings/SettingsDashboard'
 import EventForm from "../../features/event/EventForm/EventForm";
 import TestComponent from "../../features/testarea/TestComponent";
 import ModalManager from "../../features/modals/ModalManager";
+import NotFound from "./NotFound";
+import Footer from '../../features/nav/Footer/Footer'
 
 
 class App extends Component {
@@ -31,8 +33,10 @@ class App extends Component {
               <Route path='/settings' component={SettingsDashboard} />
               <Route path={['/createEvent', '/manage/:id']} component={EventForm} />
               <Route path='/test' component={TestComponent} />
+              <Route component={NotFound} />
             </Switch>
             </Container>
+            <Footer />
         </Fragment>
       )}  />
       </Fragment>

@@ -1,11 +1,8 @@
 import React, { Fragment } from 'react'
-import { Segment, Image, Item, Header, Button } from 'semantic-ui-react'
+import { Segment, Image, Item, Header, Button, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns'
 
-const eventImageStyle = {
-    filter: 'brightness(35%)'
-};
 
 const eventImageTextStyle = {
     position: 'absolute',
@@ -20,7 +17,7 @@ const EventDetailedHeader = ({event, loading, isHost, isGoing, goingToEvent, can
     return (
         <Segment.Group>
             <Segment basic attached="top" style={{ padding: '0' }}>
-                <Image src={`/assets/categoryImages/${event.category}.jpg`} fluid style={eventImageStyle}/>
+                <Image src={`/assets/categoryImages/${event.category}.jpg`} fluid />
                 <Segment basic style={eventImageTextStyle}>
                     <Item.Group>
                         <Item>
@@ -40,12 +37,23 @@ const EventDetailedHeader = ({event, loading, isHost, isGoing, goingToEvent, can
                 </Segment>
             </Segment>
         
-            <Segment attached="bottom" clearing>
-                {!isHost && 
+            <Segment attached='bottom' clearing>
+            {event.cancelled && 
+                <Label size='large' color='red' content='This event has been cancelled' />
+                }
+            {!isHost && (
                 <Fragment>
-                {isGoing ? <Button onClick={() => cancelGoingToEvent(event)} >Cancel My Place</Button> : <Button loading={loading} onClick={() => goingToEvent(event)} color="teal">Join this Event</Button> }
-                </Fragment>}
-                
+                    {isGoing && !event.cancelled &&
+                    <Button onClick={() => cancelGoingToEvent(event)}>
+                        Cancel My Place
+                    </Button>}
+                    {!isGoing && !event.cancelled &&
+                    <Button loading={loading} onClick={() => goingToEvent(event)} color='teal'>
+                        Join this Event
+                    </Button>}
+                    
+                </Fragment>
+                )}
                 {isHost && 
                 <Button 
                 as={Link} 

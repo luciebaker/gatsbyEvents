@@ -7,7 +7,7 @@ const UserDetailedSidebar = ({isCurrentUser, followUser, unfollowUser, profile, 
         <Grid.Column width={4}>
         <Segment>
         {isCurrentUser && (
-            <Button as={Link} to='/settings' color='teal' fluid content='Edit Profile'/>
+            <Button as={Link} to='/settings/basic' color='teal' fluid content='Edit Profile'/>
         )}
         
         {!isCurrentUser && !isFollowing && 

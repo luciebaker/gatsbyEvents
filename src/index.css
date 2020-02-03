@@ -133,3 +133,20 @@ body {
 .dropzone--isActive {
   border: dashed 3px #00BCB0;
 } 
+
+/* footer */
+.footer {
+  background: #000;
+  color: #fff;
+  margin-top: 45px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  
+}
+.footer a {
+  color: #7400cc;
+}
+
+.footer a:hover {
+  color: teal;
+}

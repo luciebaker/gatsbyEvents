@@ -54,12 +54,12 @@ const validate = combineValidators({
 })
 
 const category = [
-    {key: 'drinks', text: 'Drinks', value: 'drinks'},
-    {key: 'culture', text: 'Culture', value: 'culture'},
-    {key: 'film', text: 'Film', value: 'film'},
-    {key: 'food', text: 'Food', value: 'food'},
-    {key: 'music', text: 'Music', value: 'music'},
-    {key: 'travel', text: 'Travel', value: 'travel'},
+    { key: 'gatsby', text: 'Gatsby', value: 'gatsby' },
+    { key: 'react', text: 'React', value: 'react' },
+    { key: 'graphql', text: 'GraphQl', value: 'graphql' },
+    { key: 'netlify', text: 'Netlify', value: 'netlify' },
+    { key: 'contentful', text: 'Contentful', value: 'contentful' },
+    { key: 'other', text: 'Other', value: 'other' }
 ];
 
 
@@ -185,13 +185,14 @@ class EventForm extends Component {
                 } 
                 type="button">
                 Cancel</Button>
+                {event.id && 
                 <Button 
                     type='button'
                     color={event.cancelled ? 'teal' : 'black'}
                     floated='right'
                     content={event.cancelled ? 'Reactivate Event' : 'Cancel This Event'}
                     onClick={() => cancelToggle(!event.cancelled, event.id)}
-                />
+                />}
                 </Form>
             </Segment>
             </Grid.Column>

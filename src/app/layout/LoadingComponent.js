@@ -9,4 +9,4 @@ const LoadingComponent = () => {
     )
 }
 
-export default LoadingComponent
+export default LoadingComponent 

@@ -8,12 +8,12 @@ import PlaceInput from '../../../app/common/form/PlaceInput';
 import SelectInput from '../../../app/common/form/SelectInput';
 
 const interests = [
-    { key: 'drinks', text: 'Drinks', value: 'drinks' },
-    { key: 'culture', text: 'Culture', value: 'culture' },
-    { key: 'film', text: 'Film', value: 'film' },
-    { key: 'food', text: 'Food', value: 'food' },
-    { key: 'music', text: 'Music', value: 'music' },
-    { key: 'travel', text: 'Travel', value: 'travel' }
+    { key: 'gatsby', text: 'Gatsby', value: 'gatsby' },
+    { key: 'react', text: 'React', value: 'react' },
+    { key: 'graphql', text: 'GraphQl', value: 'graphql' },
+    { key: 'netlify', text: 'Netlify', value: 'netlify' },
+    { key: 'contentful', text: 'Contentful', value: 'contentful' },
+    { key: 'other', text: 'Other', value: 'other' }
     ];
 
     const AboutPage = ({ pristine, submitting, handleSubmit, updateProfile }) => {
